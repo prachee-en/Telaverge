@@ -8,6 +8,9 @@ function App() {
         <div className="top w-full h-[70vh]">
           <Navbar />
           <Info />
+          <div>
+            <h1>hello</h1>
+          </div>
         </div>
       </main>
     </>
