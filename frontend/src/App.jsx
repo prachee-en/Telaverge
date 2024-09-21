@@ -10,6 +10,7 @@ function App() {
           <Info />
           <div>
             <h1>hello</h1>
+            <span>hello</span>
           </div>
         </div>
       </main>
