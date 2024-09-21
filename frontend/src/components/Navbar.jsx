@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="px-28 py-4 sticky top-0">
+    <div className="px-28 py-3 sticky top-0 bg-black z-[1000] ">
       <div className="flex justify-between">
         <img
           src="//promos.makemytrip.com/Growth/Images/1x/mmt_dt_top_icon.png"
