@@ -1,4 +1,5 @@
 import Buses from "./components/Buses/Buses";
+import FlightsTickets from "./components/FlightTickets/FlightsTickets";
 import Footer from "./components/Footer";
 import Home from "./components/Home/Home";
 import Services from "./components/Home/Services";
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/flights" element={<Home />} />
+          <Route path="/flights/Tickets" element={<FlightsTickets/>} />
           <Route path="/buses" element={<Buses />} />
         </Routes>
         <Footer />

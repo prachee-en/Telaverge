@@ -9,7 +9,9 @@ const Home = () => {
   useEffect(() => {
     const fetchFlights = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/flights");
+        const response = await axios.get(
+          "http://localhost:8000/api/flights/flights/"
+        );
 
         setFlights(response.data);
       } catch (error) {
