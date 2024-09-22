@@ -16,5 +16,24 @@ class Booking(models.Model):
     booking_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=50, default="Pending")
 
+    def clean(self):
+        # Ensure that either a flight or a bus is selected based on transport type
+        if self.transport_type == 'flight' and not self.flight:
+            raise ValidationError("Flight is required for flight booking.")
+        if self.transport_type == 'bus' and not self.bus:
+            raise ValidationError("Bus is required for bus booking.")
+
+    def save(self, *args, **kwargs):
+        # Logic to reduce seat count for either flight or bus
+        if self.transport_type == 'flight' and self.flight:
+            self.flight.book_seat()
+        elif self.transport_type == 'bus' and self.bus:
+            self.bus.book_seat()
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return f"Booking by {self.customer_name} on {self.booking_date}"
+        if self.transport_type == 'flight' and self.flight:
+            return f"Booking by {self.customer_name} for Flight {self.flight.flight_number}"
+        elif self.transport_type == 'bus' and self.bus:
+            return f"Booking by {self.customer_name} for Bus {self.bus.bus_number}"
+        return f"Booking by {self.customer_name}"
