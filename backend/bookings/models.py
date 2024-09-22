@@ -4,6 +4,12 @@ from flights.models import Flight
 from buses.models import Bus
 
 class Booking(models.Model):
+    TRANSPORT_CHOICES = [
+        ('flight', 'Flight'),
+        ('bus', 'Bus'),
+    ]
+
+    transport_type = models.CharField(max_length=10, choices=TRANSPORT_CHOICES, default='flight')
     flight = models.ForeignKey(Flight, on_delete=models.CASCADE, null=True, blank=True)
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE, null=True, blank=True)
     customer_name = models.CharField(max_length=100)
