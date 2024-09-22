@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const FlightSearch = () => {
   const [from, setFrom] = useState("");
@@ -9,11 +10,11 @@ const FlightSearch = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     // Handle search logic here
-    console.log({ from, to, departureDate, returnDate });
+    // console.log({ from, to, departureDate, returnDate });
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center text-black">
       <h1 className="text-2xl font-bold mb-6">Flight Search</h1>
       <form
         onSubmit={handleSearch}
@@ -62,12 +63,14 @@ const FlightSearch = () => {
             />
           </div>
         </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-        >
-          Search Flights
-        </button>
+        <NavLink to={"/flights/tickets"}>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          >
+            Search Flights
+          </button>
+        </NavLink>
       </form>
     </div>
   );
