@@ -2,6 +2,7 @@
 from django.db import models
 from flights.models import Flight
 from buses.models import Bus
+from django.core.exceptions import ValidationError
 
 class Booking(models.Model):
     TRANSPORT_CHOICES = [
