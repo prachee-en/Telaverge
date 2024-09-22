@@ -9,9 +9,7 @@ const Home = () => {
   useEffect(() => {
     const fetchFlights = async () => {
       try {
-        const response = await axios.get(
-          "https://api.aviationstack.com/v1/flights?access_key=bf0e6fbd791c4670eccd6e05634dc9ab"
-        );
+        const response = await axios.get("http://localhost:8000/api/flights");
 
         setFlights(response.data);
       } catch (error) {
