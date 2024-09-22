@@ -22,9 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     # API URLs
-    path('api/flights/', include('flights.urls')),  # Flights app
-    path('api/buses/', include('buses.urls')),      # Buses app
-    path('api/bookings/', include('bookings.urls')),  # Bookings app
+    path('api/v1/flights/', include('flights.urls')),  # Flights app
+    path('api/v1/buses/', include('buses.urls')),      # Buses app
+    path('api/v1/bookings/', include('bookings.urls')),  # Bookings app
     
     path("api/v1/schema/", SpectacularAPIView.as_view(), name="api-schema"),
     path(
