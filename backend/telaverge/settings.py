@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'flights',
     'buses',
     'bookings',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -129,11 +130,24 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',  # React app URL
+    "http://localhost:3000",  # React's default development URL
+    "https://your-frontend-domain.com",
 ]
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'telaverge API',
+    'DESCRIPTION': 'API for managing flights, buses, and bookings',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
