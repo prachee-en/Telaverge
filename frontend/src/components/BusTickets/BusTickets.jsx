@@ -1,44 +1,44 @@
 import React from "react";
 
-const ticketsData = [
+const busTicketsData = [
   {
     id: 1,
-    name: "Flight A",
-    from: "New York",
+    name: "Bus A",
+    from: "San Francisco",
     to: "Los Angeles",
-    duration: "6h 30m",
-    price: "$250",
+    duration: "7h 30m",
+    price: "$50",
   },
   {
     id: 2,
-    name: "Flight B",
-    from: "Chicago",
-    to: "Miami",
-    duration: "3h 45m",
-    price: "$150",
+    name: "Bus B",
+    from: "New York",
+    to: "Washington D.C.",
+    duration: "4h 15m",
+    price: "$30",
   },
   {
     id: 3,
-    name: "Flight C",
-    from: "San Francisco",
-    to: "Las Vegas",
-    duration: "1h 30m",
-    price: "$100",
+    name: "Bus C",
+    from: "Chicago",
+    to: "Detroit",
+    duration: "5h 00m",
+    price: "$40",
   },
   // Add more tickets as needed
 ];
 
-const FlightsTickets = () => {
+const BusTickets = () => {
   return (
     <div className="h-[92vh] w-full bg-gray-100 flex flex-col items-center overflow-auto py-8">
       <h1 className="text-3xl text-black font-bold mb-6">
-        Available Flight Tickets
+        Available Bus Tickets
       </h1>
       <div className="flex flex-col items-center gap-6 w-5/6">
-        {ticketsData.map((ticket) => (
+        {busTicketsData.map((ticket) => (
           <div
             key={ticket.id}
-            className="bg-white shadow-md rounded-lg p-4 w-3/4  flex  justify-between"
+            className="bg-white shadow-md rounded-lg p-4 w-3/4 flex justify-between"
           >
             <div>
               <h2 className="text-xl font-semibold">{ticket.name}</h2>
@@ -57,4 +57,4 @@ const FlightsTickets = () => {
   );
 };
 
-export default FlightsTickets;
+export default BusTickets;
