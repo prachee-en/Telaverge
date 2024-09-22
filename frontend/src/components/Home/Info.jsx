@@ -1,7 +1,7 @@
 import React from "react";
 import Services from "./Services";
 
-const Info = () => {
+const Info = ({ flights }) => {
   return (
     <>
       <Services />
