@@ -1,9 +1,19 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Services = () => {
   return (
     <div className="px-28 mt-5  bg-white w-3/4 flex mx-auto h-24 rounded-md z-50 relative top-8 py-4 gap-8">
-      <button className="w-14 h-18">
+      {/* <NavLink
+        to={"/flights"}
+        className="w-14 h-18 {({ isActive }) => (isActive ? 'bg-red-600' : 'text-white')}"
+      > */}
+      <NavLink
+        to={"/flights"}
+        className={({ isActive }) =>
+          `w-14 h-18 ${isActive ? " bg-slate-400 rounded-md" : "text-black"}`
+        }
+      >
         <svg
           className="mx-auto"
           xmlns="http://www.w3.org/2000/svg"
@@ -35,9 +45,14 @@ const Services = () => {
             stroke-linejoin="round"
           />
         </svg>
-        <h1 className="text-black font-semibold">Flights</h1>
-      </button>
-      <button className="w-14 h-18">
+        <h1 className="text-black font-semibold text-center">Flights</h1>
+      </NavLink>
+      <NavLink
+        to={"/buses"}
+        className={({ isActive }) =>
+          `w-14 h-18 ${isActive ? " bg-slate-400 rounded-md" : "text-black"}`
+        }
+      >
         <svg
           className="mx-auto"
           xmlns="http://www.w3.org/2000/svg"
@@ -115,8 +130,8 @@ const Services = () => {
             stroke-linejoin="round"
           />
         </svg>
-        <h1 className="text-black font-semibold">Buses</h1>
-      </button>
+        <h1 className="text-black font-semibold text-center">Buses</h1>
+      </NavLink>
     </div>
   );
 };
