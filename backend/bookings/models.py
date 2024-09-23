@@ -14,6 +14,8 @@ class Booking(models.Model):
     flight = models.ForeignKey(Flight, on_delete=models.CASCADE, null=True, blank=True)
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE, null=True, blank=True)
     customer_name = models.CharField(max_length=100)
+    customer_age = models.IntegerField(default=0)
+    customer_email = models.EmailField(max_length=254, default="")
     booking_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=50, default="Pending")
 
