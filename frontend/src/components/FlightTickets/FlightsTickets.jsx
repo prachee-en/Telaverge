@@ -12,7 +12,10 @@ const FlightsTickets = () => {
 
   useEffect(() => {
     // Fetch data from the API
-    fetch(`http://localhost:8000/api/v1/flights/${from}/${to}/${departureDate}`)
+    fetch(
+      `http://localhost:8000/api/v1/flights/${from}/${to}/${departureDate}`,
+      { mode: "no-cors" }
+    )
       .then((res) => res.json())
       .then((data) => {
         setTicketsData(data);
