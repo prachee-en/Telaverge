@@ -13,6 +13,11 @@ def booking_list_create(request):
         return Response(serializer.data)
     
     elif request.method == 'POST':
+        try:
+            if int(request.data.get('customer_age')) < 18:
+                return Response({"error": "You must be 18 years or older to book a flight."}, status=400)
+        except:
+            return Response({"error": "You must be 18 years or older to book a flight."}, status=400)
         serializer = BookingSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

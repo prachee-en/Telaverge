@@ -5,7 +5,6 @@ const FlightSearch = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [departureDate, setDepartureDate] = useState("");
-  const [returnDate, setReturnDate] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -51,15 +50,6 @@ const FlightSearch = () => {
               onChange={(e) => setDepartureDate(e.target.value)}
               className="mt-1 p-2 border border-gray-300 rounded w-full"
               required
-            />
-          </div>
-          <div className="mb-4 flex-1 mx-2">
-            <label className="block text-gray-700">Return Date</label>
-            <input
-              type="date"
-              value={returnDate}
-              onChange={(e) => setReturnDate(e.target.value)}
-              className="mt-1 p-2 border border-gray-300 rounded w-full"
             />
           </div>
         </div>

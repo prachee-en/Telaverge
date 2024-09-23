@@ -14,7 +14,7 @@ class Booking(models.Model):
     flight = models.ForeignKey(Flight, on_delete=models.CASCADE, null=True, blank=True)
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE, null=True, blank=True)
     customer_name = models.CharField(max_length=100)
-    customer_age = models.IntegerField(default=0)
+    customer_age = models.PositiveSmallIntegerField(default=0)
     customer_email = models.EmailField(max_length=254, default="")
     booking_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=50, default="Pending")
@@ -38,5 +38,5 @@ class Booking(models.Model):
         if self.transport_type == 'flight' and self.flight:
             return f"Booking by {self.customer_name} for Flight {self.flight.flight_number}"
         elif self.transport_type == 'bus' and self.bus:
-            return f"Booking by {self.customer_name} for Bus {self.bus.bus_number}"
+            return f"Booking by {self.customer_name} for Bus {self.bus.id}"
         return f"Booking by {self.customer_name}"
